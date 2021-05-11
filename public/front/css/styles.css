@@ -1,0 +1,19 @@
+body {
+    min-height: 100vh; 
+}
+
+.color-primary {
+    color: #dd5c5b !important
+}
+
+.color-white {
+    color: #fff !important
+}
+
+.bg-primary {
+    background-color: #dd5c5b !important
+}
+
+.bg-white {
+    background-color: #fff !important
+}
