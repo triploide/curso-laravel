@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\Back\MovieController as BackMovieController;
-use App\Http\Controllers\GenreController;
-use App\Http\Controllers\MovieController;
+use App\Http\Controllers\Front\GenreController;
+use App\Http\Controllers\Front\MovieController;
 use App\Http\Controllers\PeliculaController;
 use Illuminate\Support\Facades\Route;
 
@@ -12,7 +12,7 @@ Route::get('/', function () {
 
 Route::get('test', function () {
     return view('test'); // return string
-});
+})->name('admin.home');
 
 Route::get('otra-cosa', function () {
     // lógica
@@ -49,14 +49,19 @@ Route::get('movies/mi-metodo', [MovieController::class, 'miMetodo']);
 // ---------------
 // -----Front-----
 // ---------------
-// Route::resource('movies', MovieController::class);
+Route::group(['prefix' => 'font', 'as' => 'front.'], function () {
+    Route::resource('movies', MovieController::class);
 
-Route::get('genres/{id}', [GenreController::class, 'show']);
+    Route::get('genres/{id}', [GenreController::class, 'show'])->middleware('auth');
+});
+
 
 // ---------------
 // -----Back-----
 // ---------------
-Route::resource('backend/movies', BackMovieController::class);
+Route::group(['prefix' => 'backend', 'as' => 'admin.', 'middleware' => 'auth:admin'], function () {
+    Route::resource('movies', BackMovieController::class);
+});
 
 
 

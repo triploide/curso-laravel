@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dea328679d3ac63ce852b97effacb7c6",
+    "content-hash": "399027a4e184f74f920f384dc6fac2a9",
     "packages": [
         {
             "name": "arcanedev/log-viewer",
@@ -1067,6 +1067,65 @@
                 "source": "https://github.com/Intervention/image/tree/master"
             },
             "time": "2019-11-02T09:15:47+00:00"
+        },
+        {
+            "name": "kamecode/auth",
+            "version": "v0.3.6",
+            "source": {
+                "type": "git",
+                "url": "https://bitbucket.org/kamecode/laravel-auth.git",
+                "reference": "b721ce83f1d1602ca254f868aa40cd835934e593"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://bitbucket.org/kamecode/laravel-auth/get/b721ce83f1d1602ca254f868aa40cd835934e593.zip",
+                "reference": "b721ce83f1d1602ca254f868aa40cd835934e593",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "6.0|^7.0|^8.0",
+                "illuminate/filesystem": "6.0|^7.0|^8.0",
+                "illuminate/support": "6.0|^7.0|^8.0",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0@dev"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "KameCode\\Auth\\KameAuthServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "KameCode\\Auth\\": "src/",
+                    "Illuminate\\Foundation\\Auth\\": "illuminate-auth/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "KameCode",
+                    "email": "info@kame-code.com",
+                    "homepage": "https://kame-code.com"
+                }
+            ],
+            "description": "Auth for Laravel",
+            "homepage": "https://bitbucket.org/kamecode/laravel-auth",
+            "keywords": [
+                "auth",
+                "laravel"
+            ],
+            "support": {
+                "source": "https://bitbucket.org/kamecode/laravel-auth/src/b721ce83f1d1602ca254f868aa40cd835934e593/?at=v0.3.6"
+            },
+            "time": "2020-12-05T16:38:21+00:00"
         },
         {
             "name": "laravel/framework",

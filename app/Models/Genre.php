@@ -11,7 +11,7 @@ class Genre extends Model
 
     // protected $table = 'generos';
 
-    public function peliculas()
+    public function movies()
     {
         return $this->hasMany(Movie::class); // muchas pelis (collection)
     }

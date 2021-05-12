@@ -12,7 +12,9 @@ class MovieController extends Controller
     {
         $movies = Movie::with('genre')->latest()->paginate(5);
 
-        return view('back.movies.index', compact('movies'));
+        $admin = auth('admin')->user();
+
+        return view('back.movies.index', compact('movies', 'admin'));
     }
 
     public function create()
