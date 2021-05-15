@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MovieRequest;
 use App\Models\Genre;
 use App\Models\Movie;
 
@@ -22,7 +23,7 @@ class MovieController extends Controller
         return view('back.movies.create');
     }
 
-    public function store()
+    public function store(MovieRequest $request)
     {
         // $movie = new Movie;
         // $movie->title = request()->input('title');
@@ -32,7 +33,7 @@ class MovieController extends Controller
         // $movie->genre_id = request()->input('genre_id');
         // $movie->save();
 
-        Movie::create(request()->all());
+        Movie::create($request->all());
 
         return redirect('backend/movies');
     }
@@ -46,8 +47,17 @@ class MovieController extends Controller
         return view('back.movies.edit', compact('movie', 'genres'));
     }
 
-    public function update()
+    public function update(MovieRequest $request)
     {
-        //
+
+    }
+
+    public function destroy($id)
+    {
+        $movie = Movie::find($id);
+
+        $movie->delete();
+
+        // return redirect()->back();
     }
 }

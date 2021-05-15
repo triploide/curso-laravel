@@ -5,7 +5,16 @@
 @section('main')
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <form action="/backend/movies" method="post">
+
+            @if (count($errors))
+                <div class="alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                        <p class="my-1">{{ $error }}</p>
+                    @endforeach
+                </div>
+            @endif
+
+            <form action="/backoffice/movies" method="post">
                 @csrf
                 <div class="form-group">
                     <label for="title">Título</label>

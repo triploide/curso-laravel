@@ -49,7 +49,7 @@ Route::get('movies/mi-metodo', [MovieController::class, 'miMetodo']);
 // ---------------
 // -----Front-----
 // ---------------
-Route::group(['prefix' => 'font', 'as' => 'front.'], function () {
+Route::group(['as' => 'front.'], function () {
     Route::resource('movies', MovieController::class);
 
     Route::get('genres/{id}', [GenreController::class, 'show'])->middleware('auth');
@@ -59,7 +59,7 @@ Route::group(['prefix' => 'font', 'as' => 'front.'], function () {
 // ---------------
 // -----Back-----
 // ---------------
-Route::group(['prefix' => 'backend', 'as' => 'admin.', 'middleware' => 'auth:admin'], function () {
+Route::group(['prefix' => 'backoffice', 'as' => 'admin.', 'middleware' => 'auth:admin'], function () {
     Route::resource('movies', BackMovieController::class);
 });
 

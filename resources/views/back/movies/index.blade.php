@@ -21,7 +21,14 @@
                         <tr>
                             <td>{{ $movie->title }}</td>
                             <td>{{ $movie->release_date->format('d/m/Y') }}</td>
-                            <td>Editar - Borrar</td>
+                            <td>
+                                Editar - 
+                                <form action="{{ route('admin.movies.destroy', $movie->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" name="delete" class="btn btn-danger">Borrar</button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
