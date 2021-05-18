@@ -40,4 +40,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function purchases()
+    {
+        return $this->hasMany(Sale::class);
+    }
+
+    public function movies()
+    {
+        return $this->hasMany(Movie::class);
+    }
+
+    //TODO: ver relación belongsToMany
 }

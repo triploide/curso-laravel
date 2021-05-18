@@ -3,6 +3,7 @@
 use App\Http\Controllers\Back\MovieController as BackMovieController;
 use App\Http\Controllers\Front\GenreController;
 use App\Http\Controllers\Front\MovieController;
+use App\Http\Controllers\Front\SaleController;
 use App\Http\Controllers\PeliculaController;
 use Illuminate\Support\Facades\Route;
 
@@ -53,6 +54,9 @@ Route::group(['as' => 'front.'], function () {
     Route::resource('movies', MovieController::class);
 
     Route::get('genres/{id}', [GenreController::class, 'show'])->middleware('auth');
+
+    // Sales
+    Route::post('buy', [SaleController::class, 'buy'])->middleware('auth');
 });
 
 

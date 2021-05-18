@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\MoneyRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class MovieRequest extends FormRequest
@@ -19,6 +20,7 @@ class MovieRequest extends FormRequest
             'release_date' => 'required|date',
             'rating' => 'required|numeric',
             'genre_id' => 'required|integer',
+            'price' => new MoneyRule,
         ];
     }
 

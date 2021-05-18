@@ -35,7 +35,11 @@
                     <label for="rating">Rating</label>
                     <input class="form-control" type="number" name="rating" id="rating">
                 </div>
-                
+
+                <div class="form-group">
+                    <label for="price">Precio</label>
+                    <input class="form-control" type="number" name="price" id="price">
+                </div>
 
                 <div class="form-group">
                     <label for="genre_id">Título</label>

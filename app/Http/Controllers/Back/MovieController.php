@@ -33,6 +33,8 @@ class MovieController extends Controller
         // $movie->genre_id = request()->input('genre_id');
         // $movie->save();
 
+        // https://regex101.com/
+
         Movie::create($request->all());
 
         return redirect('backend/movies');
