@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Collective\Html\Eloquent\FormAccessible;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -12,6 +13,7 @@ class Movie extends Model
     use HasFactory;
     use Sluggable;
     use SoftDeletes;
+    use FormAccessible;
 
     // --- Config ---
     protected $fillable = [
@@ -39,5 +41,21 @@ class Movie extends Model
     public function genre()
     {
         return $this->belongsTo(Genre::class)->withTrashed(); // una solo género
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
+
+    public function banner()
+    {
+        return  $this->morphOne(Image::class, 'imageable');
+    }
+
+    // --- Getters & Setters ---
+    public function formReleaseDateAttribute()
+    {
+        return $this->release_date->format('Y-m-d');
     }
 }

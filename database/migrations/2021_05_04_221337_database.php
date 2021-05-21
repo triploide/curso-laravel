@@ -39,12 +39,40 @@ class Database extends Migration
             $table->timestamps();
         });
 
+        // Tags
+        Schema::create('tags', function (Blueprint $table) {
+            $table->smallIncrements('id');
+            $table->string('value', 80);
+            $table->string('slug', 80)->unique();
+            $table->softDeletes();
+            $table->timestamps();
+        });
+
+        // Tag Movie Relationship
+        Schema::create('movie_tag', function (Blueprint $table) {
+            $table->increments('id');
+            $table->mediumInteger('movie_id')->unsigned();
+            $table->mediumInteger('tag_id')->unsigned();
+
+            $table->unique(['movie_id', 'tag_id']);
+        });
+
         // Sales
         Schema::create('sales', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->mediumInteger('movie_id')->unsigned();
             $table->boolean('is_pay')->default(0);
+            $table->softDeletes();
+            $table->timestamps();
+        });
+
+        // Images
+        Schema::create('images', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('src', 255);
+            $table->integer('imageable_id')->unsigned();
+            $table->string('imageable_type', 120);
             $table->softDeletes();
             $table->timestamps();
         });

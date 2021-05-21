@@ -35,7 +35,15 @@ class MovieController extends Controller
 
         // https://regex101.com/
 
-        Movie::create($request->all());
+        $movie = Movie::create($request->all());
+
+        $movie->tags()->sync(request()->input('tags'));
+
+        if (request()->hasFile('banner')) {
+            $banner = request()->file('banner');
+            $src = $banner->store('movies');
+            $movie->banner()->create(['src' => $src]);
+        }
 
         return redirect('backend/movies');
     }
@@ -49,9 +57,15 @@ class MovieController extends Controller
         return view('back.movies.edit', compact('movie', 'genres'));
     }
 
-    public function update(MovieRequest $request)
+    public function update(MovieRequest $request, $id)
     {
+        $movie = Movie::find($id);
 
+        $movie->update($request->all());
+
+        $movie->tags()->sync(request()->input('tags'));
+
+        return redirect('backend/movies');
     }
 
     public function destroy($id)

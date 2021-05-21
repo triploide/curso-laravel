@@ -14,16 +14,16 @@
                 </div>
             @endif
 
-            <form action="/backoffice/movies" method="post">
+            <form action="/backoffice/movies" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="title">Título</label>
-                    <input class="form-control" type="text" name="title" id="title">
+                    {!! Form::text('title', null, ['class' => 'form-control']); !!}
                 </div>
 
                 <div class="form-group">
                     <label for="description">Descripción</label>
-                    <textarea class="form-control" name="description" id="description"></textarea>
+                    {!! Form::textarea('description', null, ['class' => 'form-control']); !!}
                 </div>
 
                 <div class="form-group">
@@ -42,12 +42,53 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="banner">Portada</label>
+                    <input class="form-control" type="file" name="banner" id="banner">
+                </div>
+
+                <div class="form-group">
                     <label for="genre_id">Título</label>
-                    <select class="form-control" name="genre_id" id="genre_id">
-                        @foreach (\App\Models\Genre::all() as $genre)
-                            <option value="{{ $genre->id }}">{{ $genre->value }}</option>
+
+                    <div class="row">
+
+                        @foreach (\App\Models\Tag::all()->chunk(3) as $cols)
+                            <div class="col-md-4">
+                                @foreach ($cols as $tag)
+                                    <div class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="tags[]" value="{{ $tag->id }}" class="custom-control-input" id="tag{{ $tag->id }}">
+                                        <label class="custom-control-label" for="tag{{ $tag->id }}">{{ $tag->value }}</label>
+                                    </div>
+                                @endforeach
+                            </div>
                         @endforeach
-                    </select>
+                        {{-- <div class="col-md-4">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+                            </div>
+                        </div> --}}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="genre_id">Título</label>
+                        <select class="form-control" name="genre_id" id="genre_id">
+                            @foreach (\App\Models\Genre::all() as $genre)
+                                <option value="{{ $genre->id }}">{{ $genre->value }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
 
                 <div class="form-group">

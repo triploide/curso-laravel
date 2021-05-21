@@ -22,7 +22,7 @@
                             <td>{{ $movie->title }}</td>
                             <td>{{ $movie->release_date->format('d/m/Y') }}</td>
                             <td>
-                                Editar - 
+                                <a href="{{ route('admin.movies.edit', $movie->id) }}">Editar</a> - 
                                 <form action="{{ route('admin.movies.destroy', $movie->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')

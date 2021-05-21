@@ -13,10 +13,11 @@
 
             <div class="col-md-4">
                 <div class="card" style="width: 18rem;">
-                    <img src="https://picsum.photos/400/300?random={{ $loop->index }}" class="card-img-top" alt="Imagen de {{ $movie->title }}">
+                    <img src="/storage/{{ $movie->banner->src }}" class="card-img-top" alt="Imagen de {{ $movie->title }}">
                     <div class="card-body">
                         <h5 class="card-title">{{ $movie->title }}</h5>
                         <p class="card-text">{{ \Str::limit($movie->description, 80) }}</p>
+                        <p class="card-text">{{ $movie->tags->pluck('value')->implode(', ') }}</p>
                         <form action="/buy" method="POST">
                             @csrf
                             <input type="hidden" name="movie_id" value="{{ $movie->id }}">
