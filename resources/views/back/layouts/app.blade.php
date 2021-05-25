@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
-@include('front.partials.head')
+@include('back.partials.head')
+
 <body class="d-flex flex-column">
-    @include('front.partials.header')
+    @include('back.partials.header')
 
-    <main class="py-3 container flex-grow-1">
-        @yield('main')
-    </main>
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs">
+        <div class="container">
 
-    @include('front.partials.footer')
+            <ol>
+                <li><a href="index.html">Home</a></li>
+                <li>Blog</li>
+            </ol>
+            <h2>Blog</h2>
 
-    @include('front.partials.scripts')
+        </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up" style="min-height: 450px">
+
+            @yield('main')
+
+        </div>
+    </section>
+
+    @include('back.partials.footer')
+
+    @include('back.partials.scripts')
 
     @stack('scripts')
 </body>
+
 </html>

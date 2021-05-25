@@ -11,6 +11,6 @@ class HomeController extends Controller
     {
         $movies = Movie::with('genre')->limit(6)->get();
 
-        return view('front.home.index');
+        return view('front.home.index', compact('movies'));
     }
 }

@@ -25,7 +25,8 @@ class MovieFactory extends Factory
             'title' => $this->faker->words(3, true),
             'description' => $this->faker->paragraph(),
             'release_date' => $this->faker->date(),
-            'rating' => $this->faker->numberBetween(1, 9),
+            'rating' => $this->faker->numberBetween(1, 5),
+            'pirce' => $this->faker->numberBetween(250, 450),
             'genre_id' => \App\Models\Genre::inRandomOrder()->first()->id
         ];
     }

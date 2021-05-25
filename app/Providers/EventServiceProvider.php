@@ -21,9 +21,9 @@ class EventServiceProvider extends ServiceProvider
         //     SendEmailVerificationNotification::class,
         // ],
         SaleCreated::class => [
-            DecrementsStock::class,
+            DecrementsStock::class, // TODO:
             NotifyPurchaseToUser::class,
-            UpdateStatisticsTable::class,
+            UpdateStatisticsTable::class, // TODO:
         ],
     ];
 

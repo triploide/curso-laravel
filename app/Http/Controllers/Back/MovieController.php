@@ -45,7 +45,7 @@ class MovieController extends Controller
             $movie->banner()->create(['src' => $src]);
         }
 
-        return redirect('backend/movies');
+        return redirect('backoffice/movies');
     }
 
     public function edit($id)
@@ -65,7 +65,7 @@ class MovieController extends Controller
 
         $movie->tags()->sync(request()->input('tags'));
 
-        return redirect('backend/movies');
+        return redirect('backoffice/movies');
     }
 
     public function destroy($id)

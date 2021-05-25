@@ -6,6 +6,8 @@
     <div class="row">
         <div class="col-md-8 offset-md-2">
 
+            <h1 style="margin-top: 100px">Crear película</h1>
+
             @if (count($errors))
                 <div class="alert alert-danger">
                     @foreach ($errors->all() as $error)

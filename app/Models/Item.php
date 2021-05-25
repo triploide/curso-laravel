@@ -7,29 +7,28 @@ use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Sale extends Model
+class Item extends Model
 {
     use HasFactory;
     use SoftDeletes;
 
     // --- Config ---
     protected $fillable = [
+        'price',
+        'movie',
         'movie_id',
+        'sale_id',
     ];
 
+    protected $casts = [
+        'movie' => 'array'
+    ];
+
+    public $timestamps = false;
+
     // --- Relationships ---
-    public function user()
+    public function sale()
     {
-        return $this->belongsTo(User::class);
-    }
-
-    public function movie()
-    {
-        return $this->belongsTo(Movie::class);
-    }
-
-    public function items()
-    {
-        return $this->hasMany(Item::class);
+        return $this->belongsTo(Sale::class);
     }
 }

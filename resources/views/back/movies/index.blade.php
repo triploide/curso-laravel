@@ -1,11 +1,11 @@
-@extends('front.layouts.app')
+@extends('back.layouts.app')
 
 @section('title', 'Creación de películas - ' . config('app.name'))
 
 @section('main')
     <div class="row">
         <div class="col-md-12">
-        <h1>{{ $admin->email }}</h1>
+        <h1>Listados de películas <a href="/backoffice/movies/create">Nueva película</a></h1>
 
 
             <table class="table table-bordered table-striped">

@@ -50,6 +50,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(Movie::class);
     }
-
-    //TODO: ver relación belongsToMany
 }

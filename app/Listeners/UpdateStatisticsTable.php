@@ -13,12 +13,9 @@ class UpdateStatisticsTable
      *
      * @return void
      */
-    public function __construct(SaleCreated $event)
+    public function __construct()
     {
-        // $event->sale
-
-        // Agregar data a estadísticas
-        \Log::debug('UpdateStatisticsTable');
+        //
     }
 
     /**
@@ -27,8 +24,8 @@ class UpdateStatisticsTable
      * @param  object  $event
      * @return void
      */
-    public function handle($event)
+    public function handle(SaleCreated $event)
     {
-        //
+        \Log::debug('UpdateStatisticsTable');
     }
 }

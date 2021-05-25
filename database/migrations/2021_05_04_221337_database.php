@@ -24,6 +24,7 @@ class Database extends Migration
             $table->text('description');
             $table->date('release_date')->nullable();
             $table->float('rating', 3, 2); //4.99
+            $table->float('price', 6, 2); // 9999.99
             $table->boolean('is_visible')->index()->default(true);
             $table->smallInteger('genre_id')->unsigned()->index();
             $table->softDeletes();
@@ -61,10 +62,19 @@ class Database extends Migration
         Schema::create('sales', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->mediumInteger('movie_id')->unsigned();
-            $table->boolean('is_pay')->default(0);
+            $table->boolean('status_id')->default(1); //TODO: ver state machine
             $table->softDeletes();
             $table->timestamps();
+        });
+
+        // Items
+        Schema::create('items', function (Blueprint $table) {
+            $table->increments('id');
+            $table->float('price', 6, 2)->index(); // 9999.99
+            $table->json('movie')->nullable();
+            $table->integer('sale_id')->unsigned();
+            $table->integer('movie_id')->unsigned();
+            $table->softDeletes();
         });
 
         // Images
