@@ -6,6 +6,7 @@ use App\Http\Controllers\Front\GenreController;
 use App\Http\Controllers\Front\HomeController;
 use App\Http\Controllers\Front\MovieController;
 use App\Http\Controllers\Front\NotificationController;
+use App\Http\Controllers\Front\ProfileController;
 use App\Http\Controllers\Front\SaleController;
 use App\Http\Controllers\PeliculaController;
 use Illuminate\Support\Facades\Route;
@@ -73,6 +74,14 @@ Route::group(['as' => 'front.'], function () {
 
     // Notificaciones
     Route::get('perfil/notificaciones', [NotificationController::class, 'index'])->middleware('auth');
+});
+
+// ---------------
+// -----Pefil-----
+// ---------------
+Route::group(['as' => 'user.'], function () {
+    // Home
+    Route::get('perfil', [ProfileController::class, 'index'])->name('home');
 });
 
 

@@ -1,43 +1,26 @@
-<header id="header" class="fixed-top">
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-xl-10 d-flex align-items-center">
-                <h1 class="logo mr-auto"><a href="index.html">Presento<span>.</span></a></h1>
-                <!-- Uncomment below if you prefer to use an image logo -->
-                <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>-->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <header class="container">
+        <a class="navbar-brand" href="#"><img src="/front/images/logo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
+            aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                <nav class="nav-menu d-none d-lg-block">
-                    <ul>
-                        <li class="active"><a href="#header">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#portfolio">Portfolio</a></li>
-                        <li><a href="#team">Team</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li class="drop-down"><a href="">Drop Down</a>
-                            <ul>
-                                <li><a href="#">Drop Down 1</a></li>
-                                <li class="drop-down"><a href="#">Deep Drop Down</a>
-                                    <ul>
-                                        <li><a href="#">Deep Drop Down 1</a></li>
-                                        <li><a href="#">Deep Drop Down 2</a></li>
-                                        <li><a href="#">Deep Drop Down 3</a></li>
-                                        <li><a href="#">Deep Drop Down 4</a></li>
-                                        <li><a href="#">Deep Drop Down 5</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Drop Down 2</a></li>
-                                <li><a href="#">Drop Down 3</a></li>
-                                <li><a href="#">Drop Down 4</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </nav><!-- .nav-menu -->
-
-                <a href="#about" class="get-started-btn scrollto">Get Started</a>
-            </div>
+        <div class="collapse navbar-collapse" id="navbarsExample04">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/movies">Películas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Series</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-md-0">
+                <input class="form-control" type="text" placeholder="Buscar">
+            </form>
         </div>
-
-    </div>
-</header>
+    </header>
+</nav>

@@ -1,35 +1,9 @@
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-    <title>@yield('title')</title>
-    <meta content="@yield('title')" name="description">
-
-    <!-- Favicons -->
-    <link href="/front/assets/img/favicon.png" rel="icon">
-    <link href="/front/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-    <!-- Vendor CSS Files -->
-    <link href="/front/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/front/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-    <link href="/front/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="/front/assets/vendor/owl.carousel/front/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="/front/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-    <link href="/front/assets/vendor/venobox/venobox.css" rel="stylesheet">
-    <link href="/front/assets/vendor/aos/aos.css" rel="stylesheet">
-
-    <!-- Template Main CSS File -->
-    <link href="/front/assets/css/style.css" rel="stylesheet">
-
-    <!-- =======================================================
-    * Template Name: Presento - v1.1.1
-    * Template URL: https://bootstrapmade.com/presento-bootstrap-corporate-template/
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title', config('app.name'))</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="/front/css/styles.css">
 
     @stack('styles')
-</head>
+</head> 

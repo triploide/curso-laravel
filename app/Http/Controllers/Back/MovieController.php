@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MovieRequest;
+use App\Jobs\TestJob;
 use App\Models\Genre;
 use App\Models\Movie;
 
@@ -43,6 +44,8 @@ class MovieController extends Controller
             $banner = request()->file('banner');
             $src = $banner->store('movies');
             $movie->banner()->create(['src' => $src]);
+
+            TestJob::dispatch($src);
         }
 
         return redirect('backoffice/movies');
