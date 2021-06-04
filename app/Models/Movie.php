@@ -59,4 +59,10 @@ class Movie extends Model
     {
         return $this->release_date->format('Y-m-d');
     }
+
+    // --- Scopes ---
+    public function scopeReleased($query)
+    {
+        return $query->where('release_date', '<', date('Y-m-d'));
+    }
 }

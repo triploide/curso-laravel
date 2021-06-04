@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Back\LangController;
 use App\Http\Controllers\Back\MovieController as BackMovieController;
 use App\Http\Controllers\Front\CheckoutController;
 use App\Http\Controllers\Front\GenreController;
@@ -91,20 +92,11 @@ Route::group(['as' => 'user.'], function () {
 Route::group(['prefix' => 'backoffice', 'as' => 'admin.', 'middleware' => 'auth:admin'], function () {
     // Route::get('/'); TODO:
 
+    Route::get('movies/excel', [BackMovieController::class, 'excel']);
     Route::resource('movies', BackMovieController::class);
+
+    Route::get('language', [LangController::class, 'toggle']);
 });
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -9,13 +9,16 @@
         <div class="collapse navbar-collapse" id="navbarsExample04">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" href="#">{{ __('backoffice.nav.home') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/movies">Películas</a>
+                    <a class="nav-link" href="/movies">{{ __('backoffice.nav.movies') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Series</a>
+                    <a class="nav-link" href="#">{{ __('backoffice.nav.sitcoms') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/backoffice/language">{{ __('backoffice.nav.lang') }}</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-md-0">

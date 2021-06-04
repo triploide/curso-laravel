@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Back;
 
+use App\Exceptions\BannerException;
+use App\Exports\MovieExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MovieRequest;
 use App\Jobs\TestJob;
@@ -42,13 +44,28 @@ class MovieController extends Controller
 
         if (request()->hasFile('banner')) {
             $banner = request()->file('banner');
-            $src = $banner->store('movies');
+            
+            $src = $this->createBanner($banner);
+
+            // $src = $banner->store('movies');
             $movie->banner()->create(['src' => $src]);
 
             TestJob::dispatch($src);
         }
 
         return redirect('backoffice/movies');
+    }
+
+    public function createBanner($banner)
+    {
+        try {
+            $src = $banner->store('movies');
+            // throw new \Exception;
+        } catch (\Exception $e) {
+            throw new BannerException;
+        }
+
+        return $src;
     }
 
     public function edit($id)
@@ -78,5 +95,14 @@ class MovieController extends Controller
         $movie->delete();
 
         // return redirect()->back();
+    }
+
+    public function excel()
+    {
+        $export = new MovieExport;
+
+        $date = date('d-m-Y');
+
+        return \Excel::download($export, "Listado de películas $date.xlsx");
     }
 }

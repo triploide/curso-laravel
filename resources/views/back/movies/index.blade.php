@@ -5,7 +5,10 @@
 @section('main')
     <div class="row">
         <div class="col-md-12">
-        <h1>Listados de películas <a href="/backoffice/movies/create">Nueva película</a></h1>
+        <h1>Listados de películas
+            <a href="/backoffice/movies/create">Nueva película</a> &nbsp;&nbsp;&nbsp;
+            <a href="/backoffice/movies/excel">Exportar</a>
+        </h1>
 
 
             <table class="table table-bordered table-striped">
